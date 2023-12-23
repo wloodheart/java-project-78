@@ -1,27 +1,14 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.function.Predicate;
 
-public class StringSchema {
+public class StringSchema extends BaseSchema {
 
-    private final List<Predicate<String>> conditions = new ArrayList<>();
-
-    public boolean isValid(String data) {
-
-        for (Predicate condition : conditions) {
-            if (!condition.test(data)){
-                return false;
-            }
-        }
-        return true;
-    }
 
     public StringSchema required() {
         conditions.add(Objects::nonNull);
-        conditions.add(s -> !s.isEmpty());
+        conditions.add(s -> s instanceof String);
+        conditions.add(s -> !s.toString().isEmpty());
         return this;
     }
 

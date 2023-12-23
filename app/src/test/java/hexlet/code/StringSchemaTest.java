@@ -38,6 +38,15 @@ public class StringSchemaTest {
         assertThat(schema.isValid("")).isFalse();
     }
 
+
+    @Test
+    void testIsValidRequiredNonString() {
+        StringSchema schema = validator.string();
+        schema.required();
+
+        assertThat(schema.isValid(5)).isFalse();
+    }
+
     @Test
     void testIsValid() {
         StringSchema schema = validator.string();

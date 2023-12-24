@@ -13,7 +13,7 @@ public class StringSchema extends BaseSchema {
     }
 
     public StringSchema minLength(int minLength) {
-        conditions.add(s -> s.toString().length() >= minLength);
+        conditions.add(s -> ((String) s).length() >= minLength);
         return this;
     }
 

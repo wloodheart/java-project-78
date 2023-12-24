@@ -50,7 +50,9 @@ public class StringSchemaTest {
     @Test
     void testIsValid() {
         StringSchema schema = validator.string();
+        schema.minLength(21);
 
+        assertThat(schema.isValid("what does the fox")).isFalse();
         assertThat(schema.isValid("what does the fox say")).isTrue();
     }
 

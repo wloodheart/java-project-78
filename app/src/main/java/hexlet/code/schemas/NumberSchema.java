@@ -10,12 +10,12 @@ public class NumberSchema extends BaseSchema {
     }
 
     public NumberSchema positive() {
-        conditions.add(e -> e == null || (int) e > 0);
+        conditions.add(e -> e == null || Integer.parseInt(e.toString()) > 0);
         return this;
     }
 
     public NumberSchema range(int from, int to) {
-        conditions.add(e -> (int) e >= from && (int) e <= to);
+        conditions.add(e -> Integer.parseInt(e.toString()) >= from && Integer.parseInt(e.toString()) <= to);
         return this;
     }
 }

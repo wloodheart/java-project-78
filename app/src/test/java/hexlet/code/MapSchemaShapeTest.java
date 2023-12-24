@@ -10,11 +10,11 @@ import java.util.Map;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class MapSchemaShapeTest {
-    Validator validator = new Validator();
-    MapSchema schema = validator.map();
-    Map<String, BaseSchema> schemas = new HashMap<>();
+    private final Validator validator = new Validator();
+    private final MapSchema schema = validator.map();
 
     public MapSchemaShapeTest() {
+        Map<String, BaseSchema> schemas = new HashMap<>();
         schemas.put("name", validator.string().required());
         schemas.put("age", validator.number().positive());
         schema.shape(schemas);

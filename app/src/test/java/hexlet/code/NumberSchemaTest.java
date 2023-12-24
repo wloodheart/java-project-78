@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class NumberSchemaTest {
-    Validator validator = new Validator();
+    private final Validator validator = new Validator();
 
     @Test
     void testIsValidNull() {
